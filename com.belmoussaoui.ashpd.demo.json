@@ -10,11 +10,9 @@
         "--share=ipc",
         "--socket=wayland",
         "--device=dri",
-        "--talk-name=org.a11y.Bus",
         "--share=network",
         "--env=RUST_LOG=ashpd_demo=debug,ashpd=debug",
-        "--env=G_MESSAGES_DEBUG=none",
-        "--env=RUST_BACKTRACE=1"
+        "--env=G_MESSAGES_DEBUG=none"
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
@@ -23,46 +21,78 @@
     },
     "modules": [
         {
-            "name" : "libadwaita",
-            "buildsystem" : "meson",
-            "config-opts": [
-                "-Dintrospection=disabled",
-                "-Dgtk_doc=false",
-                "-Dtests=false",
-                "-Dexamples=false",
-                "-Dvapi=false"
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig"
-            ],
-            "sources" : [{
-                "type": "git",
-                "url": "https://gitlab.gnome.org/GNOME/libadwaita.git",
-                "tag": "1.0.0.alpha.3"
-            }],
-            "modules": [
+            "name": "libsass",
+            "sources": [
                 {
-                    "name" : "libsass",
-                    "buildsystem" : "meson",
-                    "cleanup": ["*"],
-                    "sources" : [{
-                        "type" : "git",
-                        "url" : "https://github.com/lazka/libsass.git",
-                        "branch" : "meson",
-                        "commit": "302397c0c8ae2d7ab02f45ea461c2c3d768f248e"
-                    }]
+                    "type" : "archive",
+                    "url" : "https://github.com/sass/libsass/archive/3.6.4.tar.gz",
+                    "sha256": "f9484d9a6df60576e791566eab2f757a97fd414fce01dd41fc0a693ea5db2889"
                 },
                 {
-                    "name" : "sassc",
-                    "buildsystem" : "meson",
-                    "cleanup": ["*"],
-                    "sources" : [{
-                        "type" : "git",
-                        "url" : "https://github.com/lazka/sassc.git",
-                        "branch" : "meson",
-                        "commit": "82803377c33247265d779af034eceb5949e78354"
-                    }]
+                    "type" : "script",
+                    "dest-filename" : "autogen.sh",
+                    "commands" : [ "autoreconf -si" ]
+                }
+            ]
+        },
+        {
+            "name": "sassc",
+            "sources": [
+                {
+                    "type" : "archive",
+                    "url" : "https://github.com/sass/sassc/archive/3.6.1.tar.gz",
+                    "sha256": "8cee391c49a102b4464f86fc40c4ceac3a2ada52a89c4c933d8348e3e4542a60"
+                },
+                {
+                    "type" : "script",
+                    "dest-filename" : "autogen.sh",
+                    "commands" : [ "autoreconf -si" ]
+                }
+            ]
+        },
+        {
+            "name" : "pango",
+            "buildsystem": "meson",
+            "config-opts" : [
+                "-Dintrospection=disabled"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://gitlab.gnome.org/GNOME/pango/-/archive/1.50.3/pango-1.50.3.tar.gz",
+                    "sha256" : "4a8b0cf33d5f9ecaa9cd99dd72703d5c4c53bc58df64dd9538493bb4356ab691"
+                }
+            ]
+        },
+        {
+            "name" : "gtk",
+            "buildsystem": "meson",
+            "config-opts" : [
+                "-Dbuild-examples=false",
+                "-Dbuild-tests=false",
+                "-Dintrospection=disabled"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/gtk/4.6/gtk-4.6.0.tar.xz",
+                    "sha256" : "782d5951fbfd585fc9ec76c09d07e28e6014c72db001fb567fff217fb96e4d8c"
+                }
+            ]
+        },
+        {
+            "name" : "libadwaita",
+            "buildsystem": "meson",
+            "config-opts" : [
+                "-Dvapi=false",
+                "-Dexamples=false",
+                "-Dtests=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://gitlab.gnome.org/GNOME/libadwaita/-/archive/1.0.0/libadwaita-1.0.0.tar.gz",
+                    "sha256" : "47c77d3e4703f0ce519dd8d4da24e94cad266b2b40f07cfaf9276f0f88aa4651"
                 }
             ]
         },
@@ -71,13 +101,14 @@
             "buildsystem": "meson",
             "config-opts": [
                 "-Dgir=false",
-                "-Dvapi=false"
+                "-Dvapi=false",
+                "-Dgtk_doc=false"
             ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libshumate/",
-                    "commit": "a6b1e3c7d0a28dda5fb57d4eec8e2dfdfb5b309c"
+                    "commit": "b614d90100ea659e9da6710c66de81c59b4e10c4"
                 }
             ]
         },
@@ -87,8 +118,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.0.1-alpha/ashpd-demo-0.0.1.tar.xz",
-                    "sha256": "13a11975e03b994d4da29142fd8b72c2355389b160963af012cb37fc98670afc"
+                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.2.0/ashpd-demo-0.2.0.tar.xz",
+                    "sha256": "31fd747d4e8ec0512c681349326e2832ef1963613d163712c0efea23179c92b4"
                 }
             ]
         }
