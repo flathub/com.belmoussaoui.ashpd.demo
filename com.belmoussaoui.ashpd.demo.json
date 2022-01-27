@@ -118,8 +118,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.2.0/ashpd-demo-0.2.0.tar.xz",
-                    "sha256": "31fd747d4e8ec0512c681349326e2832ef1963613d163712c0efea23179c92b4"
+                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.2.2/ashpd-demo-0.2.1.tar.xz",
+                    "sha256": "4d2eb949720d3085e7a11c73ff0f99488210d3a168019dc7b37cb406b3af694c"
                 }
             ]
         }
