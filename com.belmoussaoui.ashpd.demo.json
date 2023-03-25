@@ -1,9 +1,9 @@
 {
     "app-id": "com.belmoussaoui.ashpd.demo",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "44",
     "sdk": "org.gnome.Sdk",
-    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable", "org.freedesktop.Sdk.Extension.llvm12"],
+    "sdk-extensions": ["org.freedesktop.Sdk.Extension.rust-stable", "org.freedesktop.Sdk.Extension.llvm15"],
     "command": "ashpd-demo",
     "finish-args" : [
         "--socket=fallback-x11",
@@ -16,8 +16,8 @@
     ],
     "build-options" : {
         "append-path" : "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm12/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm12/lib"
+        "prepend-path": "/usr/lib/sdk/llvm15/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm15/lib"
     },
     "modules": [
         {
@@ -32,7 +32,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libshumate/",
-                    "commit": "b614d90100ea659e9da6710c66de81c59b4e10c4"
+                    "tag": "1.0.3"
                 }
             ]
         },
@@ -42,8 +42,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.2.5/ashpd-demo-0.2.3.tar.xz",
-                    "sha256": "83b9907cefc324653c2f0b011eedd9b9c23d43d0bc1ce5d017d7957bc8cc2e51"
+                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.3.0-demo/ashpd-demo-0.3.0.tar.xz",
+                    "sha256": "2d6094918bbbb912167bce40729af603abe71bca4d7e580c419c2cc5035aeac9"
                 }
             ]
         }
