@@ -63,8 +63,8 @@
                         {
                             "type": "git",
                             "url": "https://github.com/ximion/appstream.git",
-                            "commit": "1ee6af91310f9deb47f3863a7a7ffb22c46bcce6",
-                            "tag": "v0.16.2",
+                            "commit": "50026949a9a9559d9fedbf577e60073b38ebee6d",
+                            "tag": "v0.16.3",
                             "x-checker-data": {
                                 "type": "git",
                                 "tag-pattern": "^v([\\d.]+)$"
