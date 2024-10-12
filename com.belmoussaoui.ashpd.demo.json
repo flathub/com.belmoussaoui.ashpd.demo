@@ -49,6 +49,10 @@
                     "type": "archive",
                     "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.4.1-demo/ashpd-demo-0.4.1.tar.xz",
                     "sha256": "e3d356db030b35993d5ae158edf5ff3fd2be9ac4e874f8c56df6d4f8f2a29793"
+                },
+                {
+                    "type": "patch",
+                    "path": "0001-demo-Update-categories-keywords-in-the-desktop-file.patch"
                 }
             ]
         }
