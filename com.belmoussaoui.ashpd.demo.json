@@ -1,7 +1,7 @@
 {
     "id": "com.belmoussaoui.ashpd.demo",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "47",
+    "runtime-version": "48",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
@@ -13,6 +13,7 @@
         "--share=ipc",
         "--socket=wayland",
         "--device=dri",
+        "--usb=all",
         "--env=RUST_LOG=ashpd_demo=debug,ashpd=debug",
         "--env=G_MESSAGES_DEBUG=none",
         "--env=RUST_BACKTRACE=1"
@@ -23,6 +24,16 @@
         "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib"
     },
     "modules": [
+        {
+            "name": "libusb",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2",
+                    "sha256": "ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575"
+                }
+            ]
+        },
         {
             "name": "libshumate",
             "buildsystem": "meson",
@@ -36,8 +47,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libshumate/1.3/libshumate-1.3.0.tar.xz",
-                    "sha256": "8227a6e8281cde12232894fef83760d44fa66b39ef033c61ed934a86c6dc75d4"
+                    "url": "https://download.gnome.org/sources/libshumate/1.4/libshumate-1.4.0.tar.xz",
+                    "sha256": "3984368e0259862b3810d1ddc86d2dadd6d372a2b32376ccf4aff7c2e48c6d30"
                 }
             ]
         },
@@ -47,12 +58,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.4.1-demo/ashpd-demo-0.4.1.tar.xz",
-                    "sha256": "e3d356db030b35993d5ae158edf5ff3fd2be9ac4e874f8c56df6d4f8f2a29793"
-                },
-                {
-                    "type": "patch",
-                    "path": "0001-demo-Update-categories-keywords-in-the-desktop-file.patch"
+                    "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.5.0-demo/ashpd-demo-0.5.0.tar.xz",
+                    "sha256": "1387915d6bb238aa5d2c658a735f5ee96f99704210e01d96b56ad96024c51215"
                 }
             ]
         }
