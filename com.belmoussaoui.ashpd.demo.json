@@ -1,11 +1,11 @@
 {
     "id": "com.belmoussaoui.ashpd.demo",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "48",
+    "runtime-version": "50",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable",
-        "org.freedesktop.Sdk.Extension.llvm18"
+        "org.freedesktop.Sdk.Extension.llvm21"
     ],
     "command": "ashpd-demo",
     "finish-args": [
@@ -20,20 +20,10 @@
     ],
     "build-options": {
         "append-path": "/usr/lib/sdk/rust-stable/bin",
-        "prepend-path": "/usr/lib/sdk/llvm18/bin",
-        "prepend-ld-library-path": "/usr/lib/sdk/llvm18/lib"
+        "prepend-path": "/usr/lib/sdk/llvm21/bin",
+        "prepend-ld-library-path": "/usr/lib/sdk/llvm21/lib"
     },
     "modules": [
-        {
-            "name": "libusb",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2",
-                    "sha256": "ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575"
-                }
-            ]
-        },
         {
             "name": "libshumate",
             "buildsystem": "meson",
@@ -60,6 +50,10 @@
                     "type": "archive",
                     "url": "https://github.com/bilelmoussaoui/ashpd/releases/download/0.5.0-demo/ashpd-demo-0.5.0.tar.xz",
                     "sha256": "1387915d6bb238aa5d2c658a735f5ee96f99704210e01d96b56ad96024c51215"
+                },
+                {
+                    "type": "patch",
+                    "path": "ashpd-demo-appstream.patch"
                 }
             ]
         }
