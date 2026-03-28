@@ -1,0 +1,31 @@
+commit 5ea140dca54f7c4ef91462d47e9e09d586776244
+Author: Hubert Figuière <hub@figuiere.net>
+Date:   Sat Mar 28 11:02:03 2026 -0400
+
+    Fix appstream to not point at the tip of a branch
+    
+    Signed-off-by: Hubert Figuière <hub@figuiere.net>
+
+diff --git a/data/com.belmoussaoui.ashpd.demo.metainfo.xml.in.in b/data/com.belmoussaoui.ashpd.demo.metainfo.xml.in.in
+index 00c79cb..405d446 100644
+--- a/data/com.belmoussaoui.ashpd.demo.metainfo.xml.in.in
++++ b/data/com.belmoussaoui.ashpd.demo.metainfo.xml.in.in
+@@ -11,15 +11,15 @@
+   </description>
+   <screenshots>
+     <screenshot type="default">
+-      <image>https://github.com/bilelmoussaoui/ashpd/raw/master/ashpd-demo/data/resources/screenshots/screenshot1.png</image>
++      <image>https://github.com/bilelmoussaoui/ashpd/raw/0.5.0/ashpd-demo/data/resources/screenshots/screenshot1.png</image>
+       <caption>Main Window</caption>
+     </screenshot>
+     <screenshot>
+-      <image>https://github.com/bilelmoussaoui/ashpd/raw/master/ashpd-demo/data/resources/screenshots/screenshot2.png</image>
++      <image>https://github.com/bilelmoussaoui/ashpd/raw/0.5.0/ashpd-demo/data/resources/screenshots/screenshot2.png</image>
+       <caption>Account Portal Panel</caption>
+     </screenshot>
+     <screenshot>
+-      <image>https://github.com/bilelmoussaoui/ashpd/raw/master/ashpd-demo/data/resources/screenshots/screenshot3.png</image>
++      <image>https://github.com/bilelmoussaoui/ashpd/raw/0.5.0/ashpd-demo/data/resources/screenshots/screenshot3.png</image>
+       <caption>Screenshot Portal Panel</caption>
+     </screenshot>
+   </screenshots>
